@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Meeting Intelligence Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="dashboard">
+    <header>
+        <h1>MeetScribe AI</h1>
+        <p>Transform raw conversations into actionable summaries and key structured insights effortlessly.</p>
+    </header>
+
+    <main>
+        <div class="dropzone" id="dropZone">
+            <span class="dropzone-icon">🎙️</span>
+            <p>Drag & drop your meeting audio or <span class="browse-text">browse files</span></p>
+            <p class="file-specs">Supports high-quality MP3, WAV, or M4A formats</p>
+            <input type="file" id="audioFile" accept="audio/*">
+            <div class="file-badge" id="fileBadge"></div>
+        </div>
+
+        <button class="btn-generate" id="submitBtn" disabled>Generate Meeting Notes</button>
+
+        <div class="processing-state" id="processingState">
+            <div class="loader-circle"></div>
+            <p id="statusText">Uploading audio context...</p>
+        </div>
+
+        <div class="results-wrapper" id="resultsWrapper" >
+            <div class="results-grid">
+                
+                <div class="card">
+                    <div class="card-title summary-title">
+                        <span>📝</span> Executive Summary
+                    </div>
+                    <p id="outputSummary"></p>
+                </div>
+
+                <div class="card">
+                    <div class="card-title actions-title">
+                        <span>🎯</span> Action Items
+                    </div>
+                    <ul id="outputActions"></ul>
+                </div>
+
+                <div class="card">
+                    <div class="card-title keys-title">
+                        <span>📌</span> Key Insights
+                    </div>
+                    <ul id="outputKeys"></ul>
+                </div>
+
+            </div>
+        </div>
+    </main>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
