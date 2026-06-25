@@ -49,9 +49,7 @@ function handleFile(file) {
 submitBtn.addEventListener('click', async (e) => {
     e.preventDefault();  
     e.stopPropagation(); 
-    console.log("hiiiii")
     const file = audioInput.files[0];
-    console.log(file,"hi2");
     if (!file) return;
 
     const formData = new FormData();
@@ -67,11 +65,10 @@ submitBtn.addEventListener('click', async (e) => {
     }, 3500);
 
     try {
-        const response = await fetch("http://127.0.0.1:3000/upload", {
+        const response = await fetch("/upload", {
             method: 'POST',
             body: formData
         });
-        console.log("step1");
 
 
         if (!response.ok) {
@@ -82,14 +79,11 @@ submitBtn.addEventListener('click', async (e) => {
 
 
         const data = await response.json();
-        console.log("STEP 2",data);
         
         clearTimeout(statusTimeout);
         processingState.style.display = 'none';
-        console.log("STEP 3");
 
         renderDashboard(data);
-        console.log("STEP 4");
 
      } 
      catch (error) {
